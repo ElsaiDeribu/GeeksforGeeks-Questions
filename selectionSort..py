@@ -1,13 +1,41 @@
-class Solution:
-    def select(self, arr, i):
-        c = i
-        for j in range(i, len(arr)):
-            if arr[j] < arr[c]:
-                c = j
-        return c
+#!/bin/python3
 
-    def selectionSort(self, arr, n):
-        for k in range(n):
-            m = self.select(arr, k)
-            arr[k], arr[m] = arr[m], arr[k]
-        return arr
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def countingSort(arr):
+    
+    freq_arr = [0] * 100
+    
+    for num in arr:
+        freq_arr[num] += 1
+        
+    return freq_arr
+    
+    
+    
+    # Write your code here
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
